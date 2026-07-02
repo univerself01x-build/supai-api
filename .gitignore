@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+data/store.json
+state/
+ledger/
+.env
+.DS_Store
+*.tmp
