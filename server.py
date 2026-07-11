@@ -108,6 +108,19 @@ def _wrap_match_as_team(matches: list, tier: str, project_id: str) -> MatchResul
         summary=f"匹配到 {tier} 档视觉 Team。摄影师 {recommended[0].photographer.name if recommended else '待定'}。",
     )
 
+# ── 健康检查 ──
+
+@app.get("/api/health")
+async def health():
+    from engine.core import load_store
+    s = load_store()
+    return {
+        "status": "ok",
+        "version": "0.2.0",
+        "photographers": len(s.get("citizens", {})),
+        "projects": len(s.get("tasks", {})),
+    }
+
 # ── API Routes ──
 
 @app.get("/api/projects", response_model=ProjectListResponse)
