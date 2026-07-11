@@ -17,6 +17,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from fastapi.responses import JSONResponse
 import uvicorn
 
@@ -42,6 +43,25 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# ── Static files (H5 pages served directly by FastAPI) ──
+STATIC_DIR = Path(__file__).parent / "static"
+STATIC_DIR.mkdir(exist_ok=True)
+app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
+
+from fastapi.responses import FileResponse
+
+@app.get("/order.html")
+async def serve_order():
+    return FileResponse(str(STATIC_DIR / "order.html"))
+
+@app.get("/confirm.html")
+async def serve_confirm():
+    return FileResponse(str(STATIC_DIR / "confirm.html"))
+
+@app.get("/")
+async def serve_index():
+    return FileResponse(str(STATIC_DIR / "order.html"))
 
 # ── 辅助函数 ──
 
