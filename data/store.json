@@ -1,0 +1,1686 @@
+{
+  "citizens": {
+    "citizen_007": {
+      "name": "刘洋",
+      "platform": "platform",
+      "platform_id": "platform_020",
+      "skills": [
+        "商务会议摄影",
+        "活动摄影",
+        "纪录片"
+      ],
+      "location": "上海",
+      "languages": [
+        "中文"
+      ],
+      "tier": "pool",
+      "rating": 4.2,
+      "completed_tasks": 3,
+      "price_range": [
+        800,
+        1200
+      ],
+      "equipment": [],
+      "available": true,
+      "timezone": "Asia/Shanghai",
+      "rate": "协商",
+      "id": "citizen_007",
+      "registered_at": "2026-07-08"
+    },
+    "citizen_008": {
+      "id": "citizen_008",
+      "name": "LuckLee",
+      "platform": "agent",
+      "platform_id": "a2a_LuckLee",
+      "skills": [
+        "专业数码",
+        "产品拍摄",
+        "门店拍摄",
+        "数码后期"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "timezone": "Asia/Shanghai",
+      "rate": "协商",
+      "available": true,
+      "rating": 4.3,
+      "completed_tasks": 18,
+      "registered_at": "2026-07-02",
+      "tags": [],
+      "tier": "express",
+      "location": "上海",
+      "price_range": [
+        1500,
+        3000
+      ],
+      "equipment": [
+        "Sony A7M3"
+      ]
+    },
+    "citizen_009": {
+      "id": "citizen_009",
+      "name": "Lee",
+      "platform": "agent",
+      "platform_id": "a2a_Lee",
+      "skills": [
+        "活动摄影",
+        "发布会拍摄",
+        "商务会议"
+      ],
+      "languages": [
+        "中文"
+      ],
+      "timezone": "Asia/Shanghai",
+      "rate": "协商",
+      "available": true,
+      "rating": 4.6,
+      "completed_tasks": 22,
+      "registered_at": "2026-07-02",
+      "tags": [],
+      "tier": "premier",
+      "location": "北京",
+      "price_range": [
+        2000,
+        4000
+      ],
+      "equipment": [
+        "Canon R6",
+        "DJI Ronin-S"
+      ]
+    },
+    "citizen_006": {
+      "name": "李娜",
+      "platform": "platform",
+      "platform_id": "platform_001",
+      "skills": [
+        "门店拍摄",
+        "短视频",
+        "产品拍摄"
+      ],
+      "location": "北京",
+      "languages": [
+        "中文"
+      ],
+      "tier": "enterprise",
+      "rating": 4.8,
+      "completed_tasks": 57,
+      "price_range": [
+        2863,
+        5496
+      ],
+      "equipment": [
+        "Sony FX6",
+        "Canon 24-70mm"
+      ],
+      "available": true,
+      "timezone": "Asia/Shanghai",
+      "rate": "协商",
+      "id": "citizen_006",
+      "registered_at": "2026-07-08"
+    },
+    "citizen_011": {
+      "name": "杨帆",
+      "platform": "platform",
+      "platform_id": "platform_002",
+      "skills": [
+        "短视频",
+        "展会摄影",
+        "门店拍摄",
+        "人像摄影"
+      ],
+      "location": "上海",
+      "languages": [
+        "中文"
+      ],
+      "tier": "enterprise",
+      "rating": 5.0,
+      "completed_tasks": 32,
+      "price_range": [
+        2835,
+        4546
+      ],
+      "equipment": [
+        "Sony FX6",
+        "Canon 24-70mm"
+      ],
+      "available": true,
+      "timezone": "Asia/Shanghai",
+      "rate": "协商",
+      "id": "citizen_011",
+      "registered_at": "2026-07-08"
+    },
+    "citizen_012": {
+      "name": "朱鹏",
+      "platform": "platform",
+      "platform_id": "platform_003",
+      "skills": [
+        "活动摄影",
+        "商务会议摄影",
+        "视频剪辑"
+      ],
+      "location": "上海",
+      "languages": [
+        "中文"
+      ],
+      "tier": "enterprise",
+      "rating": 4.9,
+      "completed_tasks": 54,
+      "price_range": [
+        3125,
+        5354
+      ],
+      "equipment": [
+        "Canon R5",
+        "DJI RS4 Pro"
+      ],
+      "available": true,
+      "timezone": "Asia/Shanghai",
+      "rate": "协商",
+      "id": "citizen_012",
+      "registered_at": "2026-07-08"
+    },
+    "citizen_013": {
+      "name": "陈浩",
+      "platform": "platform",
+      "platform_id": "platform_004",
+      "skills": [
+        "商务会议摄影",
+        "展会摄影",
+        "短视频"
+      ],
+      "location": "上海",
+      "languages": [
+        "中文"
+      ],
+      "tier": "premier",
+      "rating": 4.6,
+      "completed_tasks": 26,
+      "price_range": [
+        2111,
+        4150
+      ],
+      "equipment": [
+        "Sony A7M3",
+        "DJI Ronin-S"
+      ],
+      "available": true,
+      "timezone": "Asia/Shanghai",
+      "rate": "协商",
+      "id": "citizen_013",
+      "registered_at": "2026-07-08"
+    },
+    "citizen_014": {
+      "name": "吴凯",
+      "platform": "platform",
+      "platform_id": "platform_005",
+      "skills": [
+        "商业摄影",
+        "数码后期"
+      ],
+      "location": "上海",
+      "languages": [
+        "中文"
+      ],
+      "tier": "premier",
+      "rating": 4.6,
+      "completed_tasks": 22,
+      "price_range": [
+        2150,
+        3832
+      ],
+      "equipment": [
+        "Sony A7M3",
+        "DJI Ronin-S"
+      ],
+      "available": true,
+      "timezone": "Asia/Shanghai",
+      "rate": "协商",
+      "id": "citizen_014",
+      "registered_at": "2026-07-08"
+    },
+    "citizen_022": {
+      "name": "李强",
+      "platform": "platform",
+      "platform_id": "platform_013",
+      "skills": [
+        "人像摄影",
+        "商业摄影",
+        "产品拍摄",
+        "活动摄影"
+      ],
+      "location": "上海",
+      "languages": [
+        "中文",
+        "英文"
+      ],
+      "tier": "express",
+      "rating": 4.1,
+      "completed_tasks": 5,
+      "price_range": [
+        1122,
+        2059
+      ],
+      "equipment": [
+        "Canon EOS R"
+      ],
+      "available": true,
+      "timezone": "Asia/Shanghai",
+      "rate": "协商",
+      "id": "citizen_022",
+      "registered_at": "2026-07-08"
+    },
+    "citizen_023": {
+      "name": "孙博文",
+      "platform": "platform",
+      "platform_id": "platform_014",
+      "skills": [
+        "纪录片",
+        "商业摄影"
+      ],
+      "location": "上海",
+      "languages": [
+        "中文",
+        "英文"
+      ],
+      "tier": "express",
+      "rating": 4.1,
+      "completed_tasks": 7,
+      "price_range": [
+        1392,
+        2128
+      ],
+      "equipment": [],
+      "available": true,
+      "timezone": "Asia/Shanghai",
+      "rate": "协商",
+      "id": "citizen_023",
+      "registered_at": "2026-07-08"
+    },
+    "citizen_026": {
+      "name": "黄鑫",
+      "platform": "platform",
+      "platform_id": "platform_017",
+      "skills": [
+        "产品拍摄",
+        "门店拍摄",
+        "电商摄影"
+      ],
+      "location": "上海",
+      "languages": [
+        "中文"
+      ],
+      "tier": "pool",
+      "rating": 4.3,
+      "completed_tasks": 1,
+      "price_range": [
+        603,
+        1072
+      ],
+      "equipment": [],
+      "available": true,
+      "timezone": "Asia/Shanghai",
+      "rate": "协商",
+      "id": "citizen_026",
+      "registered_at": "2026-07-08"
+    },
+    "citizen_027": {
+      "name": "周杰",
+      "platform": "platform",
+      "platform_id": "platform_018",
+      "skills": [
+        "活动摄影",
+        "产品拍摄"
+      ],
+      "location": "深圳",
+      "languages": [
+        "中文",
+        "英文"
+      ],
+      "tier": "pool",
+      "rating": 4.4,
+      "completed_tasks": 0,
+      "price_range": [
+        863,
+        1243
+      ],
+      "equipment": [],
+      "available": true,
+      "timezone": "Asia/Shanghai",
+      "rate": "协商",
+      "id": "citizen_027",
+      "registered_at": "2026-07-08"
+    },
+    "citizen_028": {
+      "name": "张伟",
+      "platform": "platform",
+      "platform_id": "platform_019",
+      "skills": [
+        "电商摄影",
+        "发布会拍摄"
+      ],
+      "location": "上海",
+      "languages": [
+        "中文"
+      ],
+      "tier": "pool",
+      "rating": 4.3,
+      "completed_tasks": 7,
+      "price_range": [
+        895,
+        1484
+      ],
+      "equipment": [],
+      "available": true,
+      "timezone": "Asia/Shanghai",
+      "rate": "协商",
+      "id": "citizen_028",
+      "registered_at": "2026-07-08"
+    },
+    "citizen_029": {
+      "name": "林晓",
+      "platform": "platform",
+      "platform_id": "platform_ui_01",
+      "skills": [
+        "UI设计",
+        "Figma",
+        "品牌设计"
+      ],
+      "location": "上海",
+      "languages": [
+        "中文"
+      ],
+      "tier": "express",
+      "rating": 4.4,
+      "completed_tasks": 12,
+      "price_range": [
+        1200,
+        2500
+      ],
+      "equipment": [
+        "Figma",
+        "Sketch"
+      ],
+      "available": true,
+      "timezone": "Asia/Shanghai",
+      "rate": "协商",
+      "id": "citizen_029",
+      "registered_at": "2026-07-09"
+    },
+    "citizen_030": {
+      "name": "陈思远",
+      "platform": "platform",
+      "platform_id": "platform_ui_02",
+      "skills": [
+        "UI设计",
+        "平面设计",
+        "Keynote设计"
+      ],
+      "location": "北京",
+      "languages": [
+        "中文"
+      ],
+      "tier": "premier",
+      "rating": 4.6,
+      "completed_tasks": 25,
+      "price_range": [
+        2000,
+        3500
+      ],
+      "equipment": [
+        "Adobe CC"
+      ],
+      "available": true,
+      "timezone": "Asia/Shanghai",
+      "rate": "协商",
+      "id": "citizen_030",
+      "registered_at": "2026-07-09"
+    },
+    "citizen_031": {
+      "name": "王凯",
+      "platform": "platform",
+      "platform_id": "platform_ui_03",
+      "skills": [
+        "前端开发",
+        "React",
+        "TypeScript",
+        "全栈开发"
+      ],
+      "location": "上海",
+      "languages": [
+        "中文"
+      ],
+      "tier": "premier",
+      "rating": 4.7,
+      "completed_tasks": 30,
+      "price_range": [
+        2500,
+        4500
+      ],
+      "equipment": [],
+      "available": true,
+      "timezone": "Asia/Shanghai",
+      "rate": "协商",
+      "id": "citizen_031",
+      "registered_at": "2026-07-09"
+    }
+  },
+  "tasks": {
+    "proj_20260709_121616": {
+      "id": "proj_20260709_121616",
+      "title": "AI产品发布会",
+      "description": "AI产品发布会",
+      "client_id": "client_default",
+      "budget": 8000,
+      "tier": "enterprise",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_006"
+      ],
+      "created_at": "2026-07-09T12:16:16.833169"
+    },
+    "proj_20260709_121856": {
+      "id": "proj_20260709_121856",
+      "title": "产品拍摄 电商",
+      "description": "产品拍摄 电商",
+      "client_id": "client_default",
+      "budget": 5000,
+      "tier": "pool",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_006",
+        "citizen_008",
+        "citizen_015"
+      ],
+      "created_at": "2026-07-09T12:18:56.739375"
+    },
+    "proj_20260709_122109": {
+      "id": "proj_20260709_122109",
+      "title": "AI产品发布会",
+      "description": "AI产品发布会",
+      "client_id": "client_default",
+      "budget": 5000,
+      "tier": "enterprise",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_006"
+      ],
+      "created_at": "2026-07-09T12:21:09.972270"
+    },
+    "proj_20260709_122113": {
+      "id": "proj_20260709_122113",
+      "title": "AI产品发布会",
+      "description": "AI产品发布会",
+      "client_id": "client_default",
+      "budget": 5000,
+      "tier": "enterprise",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_006"
+      ],
+      "created_at": "2026-07-09T12:21:13.472121"
+    },
+    "proj_20260709_122523": {
+      "id": "proj_20260709_122523",
+      "title": "AI产品发布会，需要摄影师拍摄",
+      "description": "AI产品发布会，需要摄影师拍摄",
+      "client_id": "client_default",
+      "budget": 5000,
+      "tier": "enterprise",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_006"
+      ],
+      "created_at": "2026-07-09T12:25:23.216827"
+    },
+    "proj_20260709_122534": {
+      "id": "proj_20260709_122534",
+      "title": "门店产品照拍摄",
+      "description": "门店产品照拍摄",
+      "client_id": "client_default",
+      "budget": 1500,
+      "tier": "express",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_018",
+        "citizen_022",
+        "citizen_012"
+      ],
+      "created_at": "2026-07-09T12:25:34.611125"
+    },
+    "proj_20260709_125730": {
+      "id": "proj_20260709_125730",
+      "title": "需要摄影师",
+      "description": "需要摄影师",
+      "client_id": "client_default",
+      "budget": 5000,
+      "tier": "pool",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_018"
+      ],
+      "created_at": "2026-07-09T12:57:30.766412"
+    },
+    "proj_20260709_125800": {
+      "id": "proj_20260709_125800",
+      "title": "北京这周有没有摄影师",
+      "description": "北京这周有没有摄影师",
+      "client_id": "client_default",
+      "budget": 5000,
+      "tier": "pool",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_018"
+      ],
+      "created_at": "2026-07-09T12:58:00.072506"
+    },
+    "proj_20260709_133909": {
+      "id": "proj_20260709_133909",
+      "title": "下周上海有场活动，需要一位摄影师",
+      "description": "下周上海有场活动，需要一位摄影师",
+      "client_id": "client_default",
+      "budget": 3000,
+      "tier": "pool",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T13:39:09.842428"
+    },
+    "proj_20260709_134537": {
+      "id": "proj_20260709_134537",
+      "title": "下周上海有场活动，需要一位摄影师",
+      "description": "下周上海有场活动，需要一位摄影师",
+      "client_id": "client_default",
+      "budget": 3000,
+      "tier": "pool",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T13:45:37.139779"
+    },
+    "proj_20260709_134640": {
+      "id": "proj_20260709_134640",
+      "title": "下周上海有场活动，需要一位摄影师",
+      "description": "下周上海有场活动，需要一位摄影师",
+      "client_id": "client_default",
+      "budget": 3000,
+      "location": "上海",
+      "tier": "express",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T13:46:40.226108"
+    },
+    "proj_20260709_134827": {
+      "id": "proj_20260709_134827",
+      "title": "下周上海有场活动，需要一位摄影师",
+      "description": "下周上海有场活动，需要一位摄影师",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "express",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T13:48:27.487973"
+    },
+    "proj_20260709_135056": {
+      "id": "proj_20260709_135056",
+      "title": "下周上海有场活动，需要安排一位摄影师，拍得好一点的",
+      "description": "下周上海有场活动，需要安排一位摄影师，拍得好一点的",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "express",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T13:50:56.313056"
+    },
+    "proj_20260709_154530": {
+      "id": "proj_20260709_154530",
+      "title": "AI产品发布会 上海 5000",
+      "description": "AI产品发布会 上海 5000",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "enterprise",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012"
+      ],
+      "created_at": "2026-07-09T15:45:30.599859"
+    },
+    "proj_20260709_155029": {
+      "id": "proj_20260709_155029",
+      "title": "下周三上海有个AI产品分享会，预算5000，需要一个摄影师，最好还会拍短视频",
+      "description": "下周三上海有个AI产品分享会，预算5000，需要一个摄影师，最好还会拍短视频",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "premier",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_011",
+        "citizen_013",
+        "citizen_006"
+      ],
+      "created_at": "2026-07-09T15:50:29.025611"
+    },
+    "proj_20260709_172505": {
+      "id": "proj_20260709_172505",
+      "title": "下周上海活动需要摄影师",
+      "description": "下周上海活动需要摄影师",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "express",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T17:25:05.611550"
+    },
+    "proj_20260709_172516": {
+      "id": "proj_20260709_172516",
+      "title": "下周北京活动需要摄影师",
+      "description": "下周北京活动需要摄影师",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "express",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T17:25:16.008771"
+    },
+    "proj_20260709_172607": {
+      "id": "proj_20260709_172607",
+      "title": "下周上海有场活动，需要安排一位摄影师，拍得好一点的",
+      "description": "下周上海有场活动，需要安排一位摄影师，拍得好一点的",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "express",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T17:26:07.481843"
+    },
+    "proj_20260709_173038": {
+      "id": "proj_20260709_173038",
+      "title": "这周末上海团建，预算1500，找个摄影师跟拍",
+      "description": "这周末上海团建，预算1500，找个摄影师跟拍",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "express",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T17:30:38.762393"
+    },
+    "proj_20260709_173343": {
+      "id": "proj_20260709_173343",
+      "title": "下周五上海AI产品发布会，预算8000，需要摄影师",
+      "description": "下周五上海AI产品发布会，预算8000，需要摄影师",
+      "client_id": "client_default",
+      "budget": 8000,
+      "location": "上海",
+      "tier": "enterprise",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012"
+      ],
+      "created_at": "2026-07-09T17:33:43.568967"
+    },
+    "proj_20260709_181528": {
+      "id": "proj_20260709_181528",
+      "title": "order.html",
+      "description": "order.html",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "pool",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T18:15:28.242936"
+    },
+    "proj_20260709_181621": {
+      "id": "proj_20260709_181621",
+      "title": "下周五上海AI产品发布会，预算8000，需要摄影师和剪辑师",
+      "description": "下周五上海AI产品发布会，预算8000，需要摄影师和剪辑师",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "enterprise",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012"
+      ],
+      "created_at": "2026-07-09T18:16:21.106533"
+    },
+    "proj_20260709_181837": {
+      "id": "proj_20260709_181837",
+      "title": "下周五上海AI产品发布会，预算8000.需要摄影师和剪辑师",
+      "description": "下周五上海AI产品发布会，预算8000.需要摄影师和剪辑师",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "enterprise",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012"
+      ],
+      "created_at": "2026-07-09T18:18:37.230915"
+    },
+    "proj_20260709_182013": {
+      "id": "proj_20260709_182013",
+      "title": "这周末上海团建，预算1500，找个摄影师跟拍",
+      "description": "这周末上海团建，预算1500，找个摄影师跟拍",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "express",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T18:20:13.427146"
+    },
+    "proj_20260709_182143": {
+      "id": "proj_20260709_182143",
+      "title": "下周北京有个技术沙龙，预算5000.要一个摄影师，拍的好一点的",
+      "description": "下周北京有个技术沙龙，预算5000.要一个摄影师，拍的好一点的",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "premier",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009"
+      ],
+      "created_at": "2026-07-09T18:21:43.584144"
+    },
+    "proj_20260709_182732": {
+      "id": "proj_20260709_182732",
+      "title": "下周北京有个技术沙龙，预算5000，要一个摄影师，拍得好一点的",
+      "description": "下周北京有个技术沙龙，预算5000，要一个摄影师，拍得好一点的",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "premier",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009"
+      ],
+      "created_at": "2026-07-09T18:27:32.185464"
+    },
+    "proj_20260709_182856": {
+      "id": "proj_20260709_182856",
+      "title": "下周北京有个技术沙龙，预算5000，要一位摄影师，拍的好一点",
+      "description": "下周北京有个技术沙龙，预算5000，要一位摄影师，拍的好一点",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "premier",
+      "status": "confirmed",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009"
+      ],
+      "created_at": "2026-07-09T18:28:56.423902",
+      "accepted_by": "citizen_012"
+    },
+    "proj_20260709_183200": {
+      "id": "proj_20260709_183200",
+      "title": "明天需要一位摄影",
+      "description": "明天需要一位摄影",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "pool",
+      "status": "confirmed",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T18:32:00.148909",
+      "accepted_by": "citizen_012"
+    },
+    "proj_20260709_183348": {
+      "id": "proj_20260709_183348",
+      "title": "明天需要一位摄影",
+      "description": "明天需要一位摄影",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "pool",
+      "status": "confirmed",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T18:33:48.683982",
+      "accepted_by": "citizen_009"
+    },
+    "proj_20260709_183953": {
+      "id": "proj_20260709_183953",
+      "title": "AI发布会上海",
+      "description": "AI发布会上海",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "enterprise",
+      "status": "confirmed",
+      "matched_citizens": [
+        "citizen_012"
+      ],
+      "created_at": "2026-07-09T18:39:53.236096",
+      "accepted_by": "citizen_012"
+    },
+    "proj_20260709_184143": {
+      "id": "proj_20260709_184143",
+      "title": "下周北京有个技术沙龙",
+      "description": "下周北京有个技术沙龙",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "北京",
+      "tier": "premier",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_009",
+        "citizen_012"
+      ],
+      "created_at": "2026-07-09T18:41:43.351276"
+    },
+    "proj_20260709_184155": {
+      "id": "proj_20260709_184155",
+      "title": "下周北京有个技术沙龙",
+      "description": "下周北京有个技术沙龙",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "北京",
+      "tier": "premier",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_009",
+        "citizen_012"
+      ],
+      "created_at": "2026-07-09T18:41:55.546680"
+    },
+    "proj_20260709_184453": {
+      "id": "proj_20260709_184453",
+      "title": "上海发布会拍摄,明天",
+      "description": "上海发布会拍摄,明天",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "pool",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_009",
+        "citizen_028"
+      ],
+      "created_at": "2026-07-09T18:44:53.350102"
+    },
+    "proj_20260709_184625": {
+      "id": "proj_20260709_184625",
+      "title": "上海明天一位摄影",
+      "description": "上海明天一位摄影",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "pool",
+      "status": "confirmed",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T18:46:25.911670",
+      "accepted_by": "citizen_009"
+    },
+    "proj_20260709_185226": {
+      "id": "proj_20260709_185226",
+      "title": "下周五 AI发布会 上海",
+      "description": "下周五 AI发布会 上海",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "enterprise",
+      "status": "confirmed",
+      "matched_citizens": [
+        "citizen_012"
+      ],
+      "created_at": "2026-07-09T18:52:26.568486",
+      "accepted_by": "citizen_012"
+    },
+    "proj_20260709_185250": {
+      "id": "proj_20260709_185250",
+      "title": "下周五 北京AI活动 一位摄像",
+      "description": "下周五 北京AI活动 一位摄像",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "北京",
+      "tier": "express",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_009",
+        "citizen_012",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T18:52:50.907657"
+    },
+    "proj_20260709_185549": {
+      "id": "proj_20260709_185549",
+      "title": "1摄像",
+      "description": "1摄像",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "pool",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T18:55:49.944019"
+    },
+    "proj_20260709_185705": {
+      "id": "proj_20260709_185705",
+      "title": "明天上海需要一位摄影",
+      "description": "明天上海需要一位摄影",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "pool",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T18:57:05.759302"
+    },
+    "proj_20260709_185724": {
+      "id": "proj_20260709_185724",
+      "title": "周五北京需要一位摄影",
+      "description": "周五北京需要一位摄影",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "北京",
+      "tier": "pool",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_009",
+        "citizen_012",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T18:57:24.490911"
+    },
+    "proj_20260709_190046": {
+      "id": "proj_20260709_190046",
+      "title": "明天北京需要一位摄影",
+      "description": "明天北京需要一位摄影",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "北京",
+      "tier": "pool",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_009",
+        "citizen_012",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T19:00:46.953032"
+    },
+    "proj_20260709_190205": {
+      "id": "proj_20260709_190205",
+      "title": "明天北京需要一位摄影",
+      "description": "明天北京需要一位摄影",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "北京",
+      "tier": "pool",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_009",
+        "citizen_012",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T19:02:05.459753"
+    },
+    "proj_20260709_190220": {
+      "id": "proj_20260709_190220",
+      "title": "这周末上海团建，预算1500，找个摄影师跟拍",
+      "description": "这周末上海团建，预算1500，找个摄影师跟拍",
+      "client_id": "client_default",
+      "budget": 1500,
+      "location": "上海",
+      "tier": "express",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T19:02:20.827659"
+    },
+    "proj_20260709_190320": {
+      "id": "proj_20260709_190320",
+      "title": "明天北京需要一位摄影",
+      "description": "明天北京需要一位摄影",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "北京",
+      "tier": "pool",
+      "status": "confirmed",
+      "matched_citizens": [
+        "citizen_009",
+        "citizen_012",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T19:03:20.191092",
+      "accepted_by": "citizen_009"
+    },
+    "proj_20260709_191943": {
+      "id": "proj_20260709_191943",
+      "title": "AI产品发布会 上海",
+      "description": "AI产品发布会 上海",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "enterprise",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012"
+      ],
+      "created_at": "2026-07-09T19:19:43.381607"
+    },
+    "proj_20260709_191948": {
+      "id": "proj_20260709_191948",
+      "title": "Hackathon 杭州",
+      "description": "Hackathon 杭州",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "杭州",
+      "tier": "pool",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T19:19:48.284040"
+    },
+    "proj_20260709_192009": {
+      "id": "proj_20260709_192009",
+      "title": "上海明天需要一位摄影",
+      "description": "上海明天需要一位摄影",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "pool",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T19:20:09.454870"
+    },
+    "proj_20260709_192018": {
+      "id": "proj_20260709_192018",
+      "title": "有吗",
+      "description": "有吗",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "pool",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T19:20:18.801156"
+    },
+    "proj_20260709_192114": {
+      "id": "proj_20260709_192114",
+      "title": "AI产品发布会 上海",
+      "description": "AI产品发布会 上海",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "enterprise",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012"
+      ],
+      "created_at": "2026-07-09T19:21:14.831809"
+    },
+    "proj_20260709_192118": {
+      "id": "proj_20260709_192118",
+      "title": "AI产品发布会 上海",
+      "description": "AI产品发布会 上海",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "enterprise",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012"
+      ],
+      "created_at": "2026-07-09T19:21:18.677520"
+    },
+    "proj_20260709_192228": {
+      "id": "proj_20260709_192228",
+      "title": "明天上海活动需要一位摄影",
+      "description": "明天上海活动需要一位摄影",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "express",
+      "status": "confirmed",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T19:22:28.470190",
+      "accepted_by": "citizen_012"
+    },
+    "proj_20260709_192252": {
+      "id": "proj_20260709_192252",
+      "title": "明天北京需要一位摄像",
+      "description": "明天北京需要一位摄像",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "北京",
+      "tier": "pool",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_009",
+        "citizen_012",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T19:22:52.161602"
+    },
+    "proj_20260709_192310": {
+      "id": "proj_20260709_192310",
+      "title": "AI产品发布会 上海",
+      "description": "AI产品发布会 上海",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "enterprise",
+      "status": "confirmed",
+      "matched_citizens": [
+        "citizen_012"
+      ],
+      "created_at": "2026-07-09T19:23:10.872393",
+      "accepted_by": "citizen_012"
+    },
+    "proj_20260709_192318": {
+      "id": "proj_20260709_192318",
+      "title": "技术沙龙 北京",
+      "description": "技术沙龙 北京",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "北京",
+      "tier": "premier",
+      "status": "confirmed",
+      "matched_citizens": [
+        "citizen_009",
+        "citizen_012"
+      ],
+      "created_at": "2026-07-09T19:23:18.108497",
+      "accepted_by": "citizen_009"
+    },
+    "proj_20260709_192324": {
+      "id": "proj_20260709_192324",
+      "title": "Demo Day 深圳",
+      "description": "Demo Day 深圳",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "深圳",
+      "tier": "pool",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_027"
+      ],
+      "created_at": "2026-07-09T19:23:24.360431"
+    },
+    "proj_20260709_192335": {
+      "id": "proj_20260709_192335",
+      "title": "Hackathon 杭州",
+      "description": "Hackathon 杭州",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "杭州",
+      "tier": "pool",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T19:23:35.294608"
+    },
+    "proj_20260709_192620": {
+      "id": "proj_20260709_192620",
+      "title": "技术沙龙 北京",
+      "description": "技术沙龙 北京",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "北京",
+      "tier": "premier",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_009",
+        "citizen_012"
+      ],
+      "created_at": "2026-07-09T19:26:20.215132"
+    },
+    "proj_20260709_192634": {
+      "id": "proj_20260709_192634",
+      "title": "AI产品发布会 上海",
+      "description": "AI产品发布会 上海",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "enterprise",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012"
+      ],
+      "created_at": "2026-07-09T19:26:34.976840"
+    },
+    "proj_20260709_192643": {
+      "id": "proj_20260709_192643",
+      "title": "AI产品发布会 上海",
+      "description": "AI产品发布会 上海",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "enterprise",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012"
+      ],
+      "created_at": "2026-07-09T19:26:43.874026"
+    },
+    "proj_20260709_192912": {
+      "id": "proj_20260709_192912",
+      "title": "AI产品发布会 上海",
+      "description": "AI产品发布会 上海",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "enterprise",
+      "status": "confirmed",
+      "matched_citizens": [
+        "citizen_012"
+      ],
+      "created_at": "2026-07-09T19:29:12.745950",
+      "accepted_by": "citizen_012"
+    },
+    "proj_20260709_192927": {
+      "id": "proj_20260709_192927",
+      "title": "技术沙龙 北京",
+      "description": "技术沙龙 北京",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "北京",
+      "tier": "premier",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_009",
+        "citizen_012"
+      ],
+      "created_at": "2026-07-09T19:29:27.969511"
+    },
+    "proj_20260709_192928": {
+      "id": "proj_20260709_192928",
+      "title": "上海发布会拍摄明天",
+      "description": "上海发布会拍摄明天",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "pool",
+      "status": "confirmed",
+      "matched_citizens": [
+        "citizen_009",
+        "citizen_028"
+      ],
+      "created_at": "2026-07-09T19:29:28.274821",
+      "accepted_by": "citizen_009"
+    },
+    "proj_20260709_192943": {
+      "id": "proj_20260709_192943",
+      "title": "Demo Day 深圳",
+      "description": "Demo Day 深圳",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "深圳",
+      "tier": "pool",
+      "status": "confirmed",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_027"
+      ],
+      "created_at": "2026-07-09T19:29:43.206180",
+      "accepted_by": "citizen_009"
+    },
+    "proj_20260709_192958": {
+      "id": "proj_20260709_192958",
+      "title": "Hackathon 杭州",
+      "description": "Hackathon 杭州",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "杭州",
+      "tier": "pool",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T19:29:58.019595"
+    },
+    "proj_20260709_193505": {
+      "id": "proj_20260709_193505",
+      "title": "技术沙龙 北京",
+      "description": "技术沙龙 北京",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "北京",
+      "tier": "premier",
+      "status": "confirmed",
+      "matched_citizens": [
+        "citizen_009",
+        "citizen_012"
+      ],
+      "created_at": "2026-07-09T19:35:05.168413",
+      "accepted_by": "citizen_009"
+    },
+    "proj_20260709_193524": {
+      "id": "proj_20260709_193524",
+      "title": "AI产品发布会 上海",
+      "description": "AI产品发布会 上海",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "enterprise",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012"
+      ],
+      "created_at": "2026-07-09T19:35:24.290818"
+    },
+    "proj_20260709_193535": {
+      "id": "proj_20260709_193535",
+      "title": "Hackathon 杭州",
+      "description": "Hackathon 杭州",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "杭州",
+      "tier": "pool",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T19:35:35.731582"
+    },
+    "proj_20260709_193538": {
+      "id": "proj_20260709_193538",
+      "title": "Demo Day 深圳",
+      "description": "Demo Day 深圳",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "深圳",
+      "tier": "pool",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_027"
+      ],
+      "created_at": "2026-07-09T19:35:38.705292"
+    },
+    "proj_20260709_193541": {
+      "id": "proj_20260709_193541",
+      "title": "技术沙龙 北京",
+      "description": "技术沙龙 北京",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "北京",
+      "tier": "premier",
+      "status": "confirmed",
+      "matched_citizens": [
+        "citizen_009",
+        "citizen_012"
+      ],
+      "created_at": "2026-07-09T19:35:41.795221",
+      "accepted_by": "citizen_009"
+    },
+    "proj_20260709_193716": {
+      "id": "proj_20260709_193716",
+      "title": "Demo Day 深圳",
+      "description": "Demo Day 深圳",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "深圳",
+      "tier": "pool",
+      "status": "confirmed",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_027"
+      ],
+      "created_at": "2026-07-09T19:37:16.891148",
+      "accepted_by": "citizen_009"
+    },
+    "proj_20260709_193857": {
+      "id": "proj_20260709_193857",
+      "title": "这周末上海团建，预算1500，找个摄影师跟拍",
+      "description": "这周末上海团建，预算1500，找个摄影师跟拍",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "express",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T19:38:57.031784"
+    },
+    "proj_20260709_193922": {
+      "id": "proj_20260709_193922",
+      "title": "帮我找个人拍证件照，预算200",
+      "description": "帮我找个人拍证件照，预算200",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "pool",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T19:39:22.466813"
+    },
+    "proj_20260709_195243": {
+      "id": "proj_20260709_195243",
+      "title": "技术沙龙 北京",
+      "description": "技术沙龙 北京",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "北京",
+      "tier": "premier",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_009",
+        "citizen_012"
+      ],
+      "created_at": "2026-07-09T19:52:43.025980"
+    },
+    "proj_20260709_195251": {
+      "id": "proj_20260709_195251",
+      "title": "Demo Day 深圳",
+      "description": "Demo Day 深圳",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "深圳",
+      "tier": "pool",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_027"
+      ],
+      "created_at": "2026-07-09T19:52:51.965614"
+    },
+    "proj_20260709_195257": {
+      "id": "proj_20260709_195257",
+      "title": "Hackathon 杭州",
+      "description": "Hackathon 杭州",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "杭州",
+      "tier": "pool",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_012",
+        "citizen_009",
+        "citizen_022"
+      ],
+      "created_at": "2026-07-09T19:52:57.489077"
+    },
+    "proj_20260709_195316": {
+      "id": "proj_20260709_195316",
+      "title": "技术沙龙 北京",
+      "description": "技术沙龙 北京",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "北京",
+      "tier": "premier",
+      "status": "matching",
+      "matched_citizens": [
+        "citizen_009",
+        "citizen_012"
+      ],
+      "created_at": "2026-07-09T19:53:16.860865"
+    },
+    "proj_20260709_224053": {
+      "id": "proj_20260709_224053",
+      "title": "AI产品发布会 上海",
+      "description": "AI产品发布会 上海",
+      "client_id": "client_default",
+      "budget": 5000,
+      "location": "上海",
+      "tier": "enterprise",
+      "status": "confirmed",
+      "matched_citizens": [
+        "citizen_012"
+      ],
+      "created_at": "2026-07-09T22:40:53.679105",
+      "accepted_by": "citizen_012"
+    }
+  },
+  "matches": [
+    {
+      "match_id": "match_20260630_ui_design",
+      "task_id": "task_002",
+      "citizen_id": "citizen_001",
+      "citizen_name": "小明",
+      "score": 125.6,
+      "verdict": "deliver",
+      "created_at": "2026-06-30"
+    },
+    {
+      "match_id": "match_20260630_photographer",
+      "task_id": "task_003",
+      "citizen_id": "citizen_002",
+      "citizen_name": "Q",
+      "score": 125.0,
+      "verdict": "deliver",
+      "created_at": "2026-06-30"
+    },
+    {
+      "match_id": "match_20260630_ui_design_001",
+      "task_id": "task_001",
+      "citizen_id": "citizen_001",
+      "citizen_name": "小明",
+      "score": 125.6,
+      "verdict": "deliver",
+      "created_at": "2026-06-30"
+    }
+  ],
+  "conversations": {
+    "conv_task_003": {
+      "task_id": "task_003",
+      "client_id": "o9cq80xLjJAgm-nBdsnSsIIU9jY4@im.wechat",
+      "client_platform": "weixin",
+      "citizen_id": "citizen_002",
+      "citizen_platform": "feishu",
+      "status": "active",
+      "created_at": "2026-06-30T16:30:00",
+      "messages": []
+    }
+  }
+}
