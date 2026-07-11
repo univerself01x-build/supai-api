@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>速派 · 确认接单</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+    background: #0A0A0B; color: #EDEDEF; min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px;
+  }
+  .card { background: #111113; border-radius: 12px; padding: 32px 24px; max-width: 360px; width: 100%; text-align: center; }
+  .title { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+  .meta { font-size: 14px; color: #8B8B90; margin-bottom: 24px; line-height: 1.6; }
+  .meta span { color: #EDEDEF; }
+  .actions { display: flex; gap: 12px; }
+  .btn {
+    flex: 1; height: 48px; border-radius: 8px; border: none;
+    font-size: 16px; font-weight: 500; cursor: pointer;
+    transition: opacity 150ms ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .btn:active { opacity: 0.8; }
+  .btn-confirm { background: #2383E2; color: #fff; }
+  .btn-reject { background: #1A1A1D; color: #8B8B90; border: 1px solid rgba(255,255,255,0.08); }
+  .result { margin-top: 24px; font-size: 14px; padding: 12px; border-radius: 8px; display: none; }
+  .result.success { display: block; background: rgba(48,164,108,0.12); color: #30A46C; }
+  .result.error { display: block; background: rgba(229,72,77,0.12); color: #E5484D; }
+  .loading { display: none; margin-top: 16px; color: #8B8B90; font-size: 14px; }
+</style>
+</head>
+<body>
+<div class="card" id="main">
+  <div class="title" id="project-title">加载中…</div>
+  <div class="meta" id="project-meta"></div>
+  <div class="actions" id="actions">
+    <button class="btn btn-confirm" onclick="handle('confirm')">确认接单</button>
+    <button class="btn btn-reject" onclick="handle('reject')">暂不接单</button>
+  </div>
+  <div class="loading" id="loading">处理中…</div>
+  <div class="result" id="result"></div>
+</div>
+<script>
+const API = 'http://' + window.location.hostname + ':8080';
+const url = new URL(window.location);
+const projectId = url.searchParams.get('id');
+
+async function load() {
+  if (!projectId) { show('error', '缺少项目 ID'); return; }
+  try {
+    const res = await fetch(API + '/api/projects/' + projectId);
+    if (!res.ok) throw new Error('项目不存在');
+    const d = await res.json(); const p = d.human;
+    document.getElementById('project-title').textContent = p.title || '未命名项目';
+    document.getElementById('project-meta').innerHTML =
+      (p.tier || '') + ' 档 · ¥' + (p.budget || 0).toLocaleString() +
+      (p.location ? ' · ' + p.location : '');
+  } catch(e) { show('error', e.message); }
+}
+
+async function handle(action) {
+  document.getElementById('actions').style.display = 'none';
+  document.getElementById('loading').style.display = 'block';
+  try {
+    const res = await fetch(API + '/api/projects/' + projectId + '/confirm', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({confirmedRoles: action === 'confirm'
+        ? [{role: 'photographer', photographerId: '', source: 'platform'}]
+        : []})
+    });
+    if (!res.ok) throw new Error('操作失败');
+    document.getElementById('loading').style.display = 'none';
+    show('success', action === 'confirm' ? '✅ 已确认接单，请按时交付。' : '已拒绝。系统将匹配其他摄影师。');
+  } catch(e) {
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('actions').style.display = 'flex';
+    show('error', e.message);
+  }
+}
+
+function show(type, msg) {
+  const r = document.getElementById('result');
+  r.className = 'result ' + type; r.textContent = msg;
+}
+
+load();
+</script>
+</body>
+</html>

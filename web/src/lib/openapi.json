@@ -1,0 +1,731 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "速派 API",
+    "description": "AI 行业数字活动视觉 Team 协作平台",
+    "version": "0.2.0"
+  },
+  "paths": {
+    "/api/projects": {
+      "get": {
+        "summary": "List Projects",
+        "description": "项目卡片列表",
+        "operationId": "list_projects_api_projects_get",
+        "parameters": [
+          {
+            "name": "role",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "fengge",
+              "title": "Role"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectListResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects/{project_id}": {
+      "get": {
+        "summary": "Get Project",
+        "description": "项目详情",
+        "operationId": "get_project_api_projects__project_id__get",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Project Id"
+            }
+          },
+          {
+            "name": "role",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "fengge",
+              "title": "Role"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectDetailResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/match": {
+      "post": {
+        "summary": "Match",
+        "description": "提交需求 → 匹配 Team",
+        "operationId": "match_api_match_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MatchRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatchResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/projects/{project_id}/confirm": {
+      "post": {
+        "summary": "Confirm Project",
+        "description": "确认 Team 成员",
+        "operationId": "confirm_project_api_projects__project_id__confirm_post",
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Project Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConfirmRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConfirmResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ConfirmRequest": {
+        "properties": {
+          "confirmedRoles": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Confirmedroles",
+            "description": "客户确认的角色列表",
+            "example": [
+              {
+                "photographerId": "citizen_018",
+                "role": "photographer",
+                "source": "platform"
+              }
+            ]
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note",
+            "description": "客户备注"
+          }
+        },
+        "type": "object",
+        "required": [
+          "confirmedRoles"
+        ],
+        "title": "ConfirmRequest"
+      },
+      "ConfirmResult": {
+        "properties": {
+          "projectId": {
+            "type": "string",
+            "title": "Projectid"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "confirmed": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Confirmed",
+            "default": []
+          },
+          "pending": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Pending",
+            "default": []
+          },
+          "nextStep": {
+            "type": "string",
+            "title": "Nextstep",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "required": [
+          "projectId",
+          "status"
+        ],
+        "title": "ConfirmResult"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "MatchRequest": {
+        "properties": {
+          "scene": {
+            "type": "string",
+            "title": "Scene",
+            "description": "活动场景描述",
+            "example": "AI产品发布会"
+          },
+          "budget": {
+            "type": "integer",
+            "maximum": 100000.0,
+            "minimum": 500.0,
+            "title": "Budget",
+            "description": "预算（元）",
+            "example": 5000
+          },
+          "location": {
+            "type": "string",
+            "title": "Location",
+            "default": "上海",
+            "example": "上海"
+          },
+          "roles": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Roles",
+            "description": "需要的角色",
+            "default": [
+              "photographer"
+            ],
+            "example": [
+              "photographer",
+              "editor"
+            ]
+          },
+          "customRoles": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Customroles",
+            "description": "客户自备的角色",
+            "default": [],
+            "example": [
+              "designer"
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "scene",
+          "budget"
+        ],
+        "title": "MatchRequest"
+      },
+      "MatchResponse": {
+        "properties": {
+          "human": {
+            "$ref": "#/components/schemas/MatchResult"
+          },
+          "agent": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Agent",
+            "default": {}
+          }
+        },
+        "type": "object",
+        "required": [
+          "human"
+        ],
+        "title": "MatchResponse"
+      },
+      "MatchResult": {
+        "properties": {
+          "projectId": {
+            "type": "string",
+            "title": "Projectid"
+          },
+          "tier": {
+            "type": "string",
+            "title": "Tier"
+          },
+          "recommendedTeam": {
+            "items": {
+              "$ref": "#/components/schemas/TeamSlot"
+            },
+            "type": "array",
+            "title": "Recommendedteam"
+          },
+          "alternativeOptions": {
+            "additionalProperties": {
+              "items": {
+                "$ref": "#/components/schemas/TeamSlot"
+              },
+              "type": "array"
+            },
+            "type": "object",
+            "title": "Alternativeoptions",
+            "default": {}
+          },
+          "summary": {
+            "type": "string",
+            "title": "Summary"
+          }
+        },
+        "type": "object",
+        "required": [
+          "projectId",
+          "tier",
+          "recommendedTeam",
+          "summary"
+        ],
+        "title": "MatchResult"
+      },
+      "PhotographerInfo": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "tier": {
+            "type": "string",
+            "title": "Tier"
+          },
+          "score": {
+            "type": "number",
+            "title": "Score"
+          },
+          "skills": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Skills"
+          },
+          "completedTasks": {
+            "type": "integer",
+            "title": "Completedtasks"
+          },
+          "avgRating": {
+            "type": "number",
+            "title": "Avgrating"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "tier",
+          "score",
+          "skills",
+          "completedTasks",
+          "avgRating"
+        ],
+        "title": "PhotographerInfo"
+      },
+      "ProjectCard": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "tier": {
+            "type": "string",
+            "title": "Tier",
+            "default": "pool"
+          },
+          "budget": {
+            "type": "integer",
+            "title": "Budget",
+            "default": 0
+          },
+          "location": {
+            "type": "string",
+            "title": "Location",
+            "default": "上海"
+          },
+          "team": {
+            "items": {
+              "$ref": "#/components/schemas/TeamSlotSummary"
+            },
+            "type": "array",
+            "title": "Team"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Createdat"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "status",
+          "team",
+          "createdAt"
+        ],
+        "title": "ProjectCard"
+      },
+      "ProjectDetail": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "clientName": {
+            "type": "string",
+            "title": "Clientname",
+            "default": ""
+          },
+          "requirement": {
+            "type": "string",
+            "title": "Requirement",
+            "default": ""
+          },
+          "location": {
+            "type": "string",
+            "title": "Location",
+            "default": ""
+          },
+          "budget": {
+            "type": "integer",
+            "title": "Budget",
+            "default": 0
+          },
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "default": "matching"
+          },
+          "tier": {
+            "type": "string",
+            "title": "Tier",
+            "default": "pool"
+          },
+          "team": {
+            "items": {
+              "$ref": "#/components/schemas/TeamSlot"
+            },
+            "type": "array",
+            "title": "Team",
+            "default": []
+          },
+          "timeline": {
+            "items": {
+              "$ref": "#/components/schemas/TimelineEntry"
+            },
+            "type": "array",
+            "title": "Timeline",
+            "default": []
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "title"
+        ],
+        "title": "ProjectDetail"
+      },
+      "ProjectDetailResponse": {
+        "properties": {
+          "human": {
+            "$ref": "#/components/schemas/ProjectDetail"
+          },
+          "agent": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Agent",
+            "default": {}
+          }
+        },
+        "type": "object",
+        "required": [
+          "human"
+        ],
+        "title": "ProjectDetailResponse"
+      },
+      "ProjectListResponse": {
+        "properties": {
+          "human": {
+            "items": {
+              "$ref": "#/components/schemas/ProjectCard"
+            },
+            "type": "array",
+            "title": "Human"
+          },
+          "agent": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Agent",
+            "default": []
+          }
+        },
+        "type": "object",
+        "required": [
+          "human"
+        ],
+        "title": "ProjectListResponse"
+      },
+      "TeamSlot": {
+        "properties": {
+          "role": {
+            "type": "string",
+            "title": "Role"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "default": "matched"
+          },
+          "photographer": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PhotographerInfo"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "source": {
+            "type": "string",
+            "title": "Source",
+            "default": "platform"
+          }
+        },
+        "type": "object",
+        "required": [
+          "role"
+        ],
+        "title": "TeamSlot"
+      },
+      "TeamSlotSummary": {
+        "properties": {
+          "role": {
+            "type": "string",
+            "title": "Role"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "assignee": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Assignee"
+          }
+        },
+        "type": "object",
+        "required": [
+          "role",
+          "status"
+        ],
+        "title": "TeamSlotSummary"
+      },
+      "TimelineEntry": {
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Timestamp"
+          },
+          "event": {
+            "type": "string",
+            "title": "Event"
+          },
+          "by": {
+            "type": "string",
+            "title": "By"
+          }
+        },
+        "type": "object",
+        "required": [
+          "timestamp",
+          "event",
+          "by"
+        ],
+        "title": "TimelineEntry"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

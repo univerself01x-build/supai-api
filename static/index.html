@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>速派 · 摄影匹配</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0a;color:#f8fafc;font:14px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding:16px;min-height:100dvh}
+h1{font-size:18px;margin-bottom:4px}
+.sub{color:#94a3b8;font-size:13px;margin-bottom:20px}
+.card{background:#1a1a2e;border-radius:10px;padding:16px;margin-bottom:12px}
+.card h3{font-size:15px;margin-bottom:4px}
+.card .meta{color:#94a3b8;font-size:13px}
+.card .stars{color:#f59e0b}
+.input-wrap{display:flex;gap:8px;margin-bottom:20px}
+input{flex:1;background:#1a1a2e;border:1px solid #334155;color:#f8fafc;padding:10px 14px;border-radius:8px;font-size:14px;outline:none}
+input:focus{border-color:#6366f1}
+button{background:#6366f1;color:#fff;border:none;padding:10px 18px;border-radius:8px;font-size:14px;cursor:pointer;white-space:nowrap}
+button:active{opacity:.8}
+#progress{color:#94a3b8;font-size:13px;margin-bottom:12px;min-height:20px}
+#results{min-height:120px}
+.placeholder{color:#94a3b8;text-align:center;padding:40px 0;font-size:13px}
+.placeholder span{color:#6366f1}
+.tier-badge{display:inline-block;background:#6366f1;color:#fff;font-size:11px;padding:1px 6px;border-radius:4px;margin-right:4px}
+</style>
+</head>
+<body>
+<h1>速派</h1>
+<div class="sub">摄影师智能匹配</div>
+
+<div class="input-wrap">
+  <input id="msg" autofocus placeholder="拍发布会，上海，5000" />
+  <button onclick="send()">发送</button>
+</div>
+
+<div id="progress"></div>
+<div id="results">
+  <div class="placeholder">试试说: <span>拍发布会，上海，5000</span></div>
+</div>
+
+<script>
+const progress = [
+  "正在搜索摄影师...",
+  "技能匹配中...",
+  "评分排序...",
+  "找到结果"
+]
+
+async function send() {
+  const msg = document.getElementById("msg").value.trim()
+  if (!msg) return
+  
+  const $p = document.getElementById("progress")
+  const $r = document.getElementById("results")
+  $r.innerHTML = ""
+  
+  for (let i = 0; i < progress.length; i++) {
+    $p.textContent = progress[i]
+    await new Promise(r => setTimeout(r, 400 + Math.random() * 300))
+  }
+  $p.textContent = ""
+  
+  const res = await fetch("/api/match", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({message: msg, platform: "web", user_id: "web"})
+  })
+  const data = await res.json()
+  
+  if (data.matches?.length) {
+    let html = ""
+    data.matches.forEach((m, i) => {
+      const stars = "★".repeat(Math.min(m.rank * 2, 5))
+      html += `<div class="card">
+        <h3>${i+1}. ${m.name}</h3>
+        <div class="meta">${m.skills || ""}</div>
+        <div class="meta">
+          <span class="stars">${stars}</span> · 得分 ${m.score}
+        </div>
+      </div>`
+    })
+    $r.innerHTML = html
+  } else {
+    $r.innerHTML = `<div class="placeholder">暂未找到匹配<br/>试试放宽要求</div>`
+  }
+}
+</script>
+</body>
+</html>

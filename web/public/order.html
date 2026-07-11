@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>速派</title>
+<style>
+  :root {
+    --bg: #0A0A0B; --card: #111113; --hover: #1A1A1D;
+    --text: #EDEDEF; --muted: #8B8B90; --faint: #5C5C60;
+    --accent: #2383E2; --green: #30A46C; --red: #E5484D;
+    --indigo: #6366F1; --purple: #8B5CF6;
+    --border: rgba(255,255,255,0.06);
+    --radius: 8px;
+    --font: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+    --mono: 'SF Mono', 'JetBrains Mono', 'Fira Code', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: var(--font); background: var(--bg); color: var(--text);
+    height: 100vh; height: 100dvh; display: flex; flex-direction: column;
+    -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent;
+  }
+  /* Status bar — iTerm2 style, above input */
+  .status-bar { height: 2px; width: 100%; flex-shrink: 0; transition: all 0.3s ease; }
+  .status-bar.idle    { background: transparent; }
+  .status-bar.active  { background: linear-gradient(90deg, var(--indigo), var(--purple), var(--indigo)); background-size: 200% 100%; animation: breathe 1.5s ease-in-out infinite; }
+  .status-bar.done    { background: var(--green); animation: flash-green 0.6s ease-out forwards; }
+  .status-bar.error   { background: var(--red); }
+  @keyframes breathe { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+  @keyframes flash-green { 0% { opacity: 1; } 100% { opacity: 0; background: transparent; } }
+
+  /* Header — minimal, terminal style */
+  .header {
+    padding: 10px 16px 0; flex-shrink: 0;
+    font-size: 15px; font-weight: 700; font-family: var(--font); letter-spacing: -0.01em;
+    background: linear-gradient(135deg, #F5C542, #E8A820, #F5C542);
+    background-size: 200% 100%;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+  @keyframes shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* Results area */
+  .results { flex: 1; overflow-y: auto; padding: 0 16px; scroll-behavior: smooth; }
+
+  /* Empty state */
+  .empty { text-align: center; padding: 32px 0 0; }
+  .empty .icon { font-size: 28px; margin-bottom: 12px; opacity: 0.5; }
+  .empty .tagline { font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 4px; letter-spacing: 0.01em; }
+  .empty .sub { font-size: 12px; color: var(--faint); margin-bottom: 28px; }
+  /* Suggestion chips */
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; padding: 0 8px; }
+  .chip {
+    padding: 10px 16px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.07);
+    background: var(--card); color: var(--muted); font-size: 13px;
+    cursor: pointer; transition: all 150ms; white-space: nowrap;
+    font-family: var(--font);
+  }
+  .chip:active { background: var(--hover); border-color: var(--accent); color: var(--text); }
+
+  /* Card results */
+  .card {
+    background: var(--card); border-radius: var(--radius); padding: 16px; margin-bottom: 8px;
+    border: 1px solid var(--border); cursor: pointer; transition: border-color 150ms, background 150ms;
+  }
+  .card:active { background: var(--hover); }
+  .card.selected { border-color: var(--accent); background: rgba(35,131,226,0.04); }
+  .card .name { font-size: 15px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+  .card .badge { font-size: 10px; font-weight: 500; padding: 1px 6px; border-radius: 4px; flex-shrink: 0; }
+  .badge.enterprise { background: rgba(245,197,66,0.15); color: #F5C542; }
+  .badge.premier    { background: rgba(139,92,246,0.15); color: #8B5CF6; }
+  .badge.express    { background: rgba(35,131,226,0.15); color: #70B8FF; }
+  .badge.pool        { background: rgba(139,139,144,0.15); color: #8B8B90; }
+  .card .meta { font-size: 12px; color: var(--muted); margin-top: 6px; font-family: var(--mono); }
+  .card .meta span { color: var(--text); }
+  .card .skills { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 4px; }
+  .card .skills .tag { font-size: 10px; padding: 2px 8px; border-radius: 4px; background: rgba(35,131,226,0.08); color: #70B8FF; }
+  .card .check { float: right; font-size: 11px; font-weight: 500; color: var(--accent); display: none; }
+  .card.selected .check { display: inline; }
+
+  /* Loading */
+  .loading { text-align: center; padding: 48px 0; }
+  .dot-pulse { display: flex; gap: 6px; justify-content: center; margin-bottom: 12px; }
+  .dot-pulse span { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: dot 1.2s ease-in-out infinite; }
+  .dot-pulse span:nth-child(2) { animation-delay: 0.2s; }
+  .dot-pulse span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes dot { 0%, 100% { opacity: 0.2; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1); } }
+
+  /* Bottom bar */
+  .bottom {
+    flex-shrink: 0; padding: 8px 16px; padding-bottom: max(16px, env(safe-area-inset-bottom));
+    border-top: 1px solid rgba(255,255,255,0.04); background: var(--bg);
+  }
+  .confirm-bar { display: none; margin-bottom: 6px; }
+  .confirm-bar.show { display: block; }
+  .confirm-bar button {
+    width: 100%; height: 44px; border-radius: var(--radius); border: none;
+    background: var(--accent); color: #fff; font-size: 15px; font-weight: 600; cursor: pointer; font-family: var(--font);
+  }
+  .confirm-bar button:active { opacity: 0.85; }
+  .input-wrap { position: relative; }
+  .input-wrap input {
+    width: 100%; height: 48px; border-radius: 12px; border: 1px solid var(--border);
+    background: var(--card); color: var(--text); padding: 0 44px 0 16px; font-size: 15px;
+    font-family: var(--font); outline: none; transition: border-color 200ms, box-shadow 200ms;
+  }
+  .input-wrap input:focus { border-color: rgba(35,131,226,0.4); box-shadow: 0 0 0 3px rgba(35,131,226,0.08); }
+  .input-wrap input::placeholder { color: var(--faint); }
+  .input-wrap .mic-btn {
+    position: absolute; right: 4px; top: 50%; transform: translateY(-50%);
+    width: 38px; height: 38px; border-radius: 10px; border: none; background: transparent;
+    color: var(--faint); cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: all 150ms; -webkit-tap-highlight-color: transparent;
+  }
+  .input-wrap .mic-btn:active { background: var(--hover); }
+  .input-wrap .mic-btn.listening { color: var(--red); background: rgba(229,72,77,0.12); animation: pulse-mic 1s ease-in-out infinite; }
+  @keyframes pulse-mic { 0%,100% { opacity: 1; } 50% { opacity: 0.6; } }
+  .sys-status { text-align: center; font-size: 10px; color: var(--faint); margin-bottom: 4px; font-family: var(--mono); }
+</style>
+</head>
+<body>
+
+<div class="header">SUPAI</div>
+
+<div class="results" id="results">
+  <div class="empty">
+    <div class="icon">&#9788;</div>
+    <div class="tagline">描述需求，AI 组队</div>
+    <div class="sub">一句话，一支视觉 Team</div>
+    <div class="chips">
+      <span class="chip" onclick="useSuggestion(this)">AI产品发布会 上海</span>
+      <span class="chip" onclick="useSuggestion(this)">技术沙龙 北京</span>
+      <span class="chip" onclick="useSuggestion(this)">Demo Day 深圳</span>
+      <span class="chip" onclick="useSuggestion(this)">Hackathon 杭州</span>
+    </div>
+  </div>
+</div>
+
+<div class="bottom">
+  <div class="confirm-bar" id="confirm-bar"><button onclick="confirmSelection()">确认选择</button></div>
+  <div class="sys-status" id="sys-status">20 位摄影师在线 · 上海 北京 深圳</div>
+  <div class="status-bar idle" id="status-bar"></div>
+  <div class="input-wrap">
+    <input type="text" id="input" placeholder="描述你的需求…" autofocus>
+    <button class="mic-btn" id="mic-btn" onclick="toggleVoice()" aria-label="语音输入">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+const API = '/api';
+let selId = null, selName = null;
+function $(id) { return document.getElementById(id); }
+
+// ── Voice Input ──
+var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+var recognition = null;
+var listening = false;
+
+function toggleVoice() {
+  if (!recognition) {
+    recognition = new SpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    recognition.lang = 'zh-CN';
+    recognition.onresult = function(event) {
+      var text = event.results[0][0].transcript;
+      $('input').value = text;
+      match();
+    };
+    recognition.onerror = function() { stopListening(); };
+    recognition.onend = function() { stopListening(); };
+  }
+  if (listening) {
+    recognition.stop();
+    stopListening();
+  } else {
+    recognition.start();
+    startListening();
+  }
+}
+
+function startListening() {
+  listening = true;
+  $('mic-btn').classList.add('listening');
+  $('input').placeholder = '正在聆听…';
+}
+
+function stopListening() {
+  listening = false;
+  $('mic-btn').classList.remove('listening');
+  $('input').placeholder = '描述你的需求…';
+}
+
+function useSuggestion(el) {
+  $('input').value = el.textContent;
+  match();
+}
+
+async function match() {
+  var scene = $('input').value.trim();
+  if (!scene) return;
+  selId = null; selName = null;
+  $('confirm-bar').className = 'confirm-bar';
+  $('status-bar').className = 'status-bar active';
+  $('results').innerHTML = '<div class="loading"><div class="dot-pulse"><span></span><span></span><span></span></div><div style="color:var(--muted);font-size:13px">匹配中</div></div>';
+  try {
+    var res = await fetch(API + '/api/match', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({scene:scene, budget:5000}) });
+    var r = (await res.json()).human;
+    $('status-bar').className = 'status-bar done';
+    setTimeout(function(){ $('status-bar').className = 'status-bar idle'; }, 700);
+
+    var html = '';
+    function card(p, isAlt) {
+      if (!p || !p.id) return '';
+      var tier = p.tier || 'pool';
+      var tierCN = {enterprise:'首发定制',premier:'资深',express:'专业',pool:'速拍'}[tier]||tier;
+      return '<div class="card'+(isAlt?' alt':'')+'" data-id="'+p.id+'" data-name="'+(p.name||'')+'" onclick="selectCard(this)"'+(isAlt?' style="opacity:0.65"':'')+'>'+
+        '<div class="name"><span class="check">已选</span>'+(p.name||'?')+'<span class="badge '+tier+'">'+tierCN+'</span></div>'+
+        '<div class="meta">'+(p.location||'')+' · <span>★'+(p.avgRating||0)+'</span> · <span>'+(p.completedTasks||0)+'单</span></div>'+
+        '<div class="skills">'+(p.skills||[]).map(function(s){return '<span class="tag">'+s+'</span>'}).join('')+'</div></div>';
+    }
+    for (var i=0;i<(r.recommendedTeam||[]).length;i++) html += card(r.recommendedTeam[i].photographer, false);
+    if ((r.alternativeOptions||{}).photographer && r.alternativeOptions.photographer.length) {
+      html += '<div style="font-size:11px;color:var(--faint);margin:12px 0 6px">更多选择</div>';
+      for (var j=0;j<r.alternativeOptions.photographer.length;j++) html += card(r.alternativeOptions.photographer[j].photographer, true);
+    }
+    $('results').innerHTML = html || '<div class="empty"><div class="icon">☋</div><div class="tagline">未找到匹配</div><div class="sub">换个描述试试</div></div>';
+    $('input').value = '';
+  } catch(e) {
+    $('status-bar').className = 'status-bar error';
+    setTimeout(function(){ $('status-bar').className = 'status-bar idle'; }, 2000);
+    $('results').innerHTML = '<div class="empty"><div class="icon">!</div><div class="tagline" style="color:var(--red)">连接失败</div><div class="sub">请检查网络后重试</div></div>';
+  }
+}
+
+function selectCard(el) {
+  var cards = document.querySelectorAll('.card');
+  for (var i=0;i<cards.length;i++) cards[i].classList.remove('selected');
+  el.classList.add('selected');
+  selId = el.getAttribute('data-id');
+  selName = el.getAttribute('data-name');
+  $('confirm-bar').className = 'confirm-bar show';
+}
+
+async function confirmSelection() {
+  if (!selId) return;
+  var btn = $('confirm-bar').querySelector('button');
+  btn.disabled = true; btn.textContent = '处理中';
+  try {
+    var pr = await fetch(API+'/api/projects'); var pd = await pr.json();
+    var lp = pd.human[pd.human.length-1];
+    if (lp&&lp.id) await fetch(API+'/api/projects/'+lp.id+'/confirm', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({confirmedRoles:[{role:'photographer',photographerId:selId,source:'platform'}]}) });
+  } catch(e) {}
+  btn.textContent = '已确认 '+selName;
+}
+
+// ── Init ──
+if (!SpeechRecognition) { var mb = $('mic-btn'); if (mb) mb.style.display = 'none'; }
+
+$('input').addEventListener('keydown', function(e) { if (e.key==='Enter') match(); });
+</script>
+</body>
+</html>

@@ -194,6 +194,21 @@ t("匹配含审查字段",
 # 结果
 # ═══════════════════════════════════════════
 
+# ── 清理 harness 测试产生的重复数据 ──
+def _cleanup_harness():
+    s = load_store()
+    removed = []
+    for cid in list(s["citizens"].keys()):
+        c = s["citizens"][cid]
+        if c.get("platform_id") == "h_test_1" and cid != "citizen_007":
+            del s["citizens"][cid]
+            removed.append(cid)
+    from engine import save_store
+    if removed:
+        save_store(s)
+        print(f"\n  🧹 清理: {removed}")
+_cleanup_harness()
+
 print(f"\n{'='*40}")
 total = PASS + FAIL
 print(f" 通过: {PASS}/{total}")

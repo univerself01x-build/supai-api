@@ -126,7 +126,50 @@ Agent → a2a_*() → {agent: JSON}         ← Codex/Claude
 
 ---
 
-## 七、迭代规则
+## 七、多 Agent 架构（v1.1 新增）
+
+### Agent 闭环（AIMA §2.4.7）
+```
+每个 Agent 内部自成闭环:
+  Claude — Utility-based: 架构决策、代码审查、审美判断
+  CodeX  — Goal-based: 并行批量执行（代码/视频/图文/测试）
+  星辰   — Model-based + Critic: 状态追踪、消息路由、harness 验证
+  峰哥   — Ultimate Critic: 价值对齐、最终决策
+```
+
+### 通信协议（FIPA 风格消息路由）
+```
+统一消息格式 → 所有 Agent 对等接入
+  context/claude/inbox/  — 发给 Claude 的消息
+  context/claude/outbox/ — Claude 发出的响应
+  context/hermes/inbox/  — 发给星辰的消息
+  context/hermes/outbox/ — 星辰发出的响应
+  context/codex/inbox/   — 发给 CodeX 的消息（预埋）
+  context/codex/outbox/  — CodeX 发出的响应（预埋）
+
+语义: inbox = 该 agent 接收，outbox = 该 agent 发出
+协议规范: context/shared/a2a-protocol.md v0.2
+```
+
+### 合同网（预埋，Phase 2）
+```
+任务状态机: announced → bidding → awarded → executing → completed/failed
+cfp/propose/accept/reject 原语已定义，当前规模不需要全量启用
+```
+
+### 安全检查
+```
+三层 Critic: harness 自动验证 → Claude 审查 → 峰哥确认
+可靠性: 不静默失败、回退安全状态、峰哥兜底
+AI Safety: 目标误对齐审查、路由质量权重 ≥ 效率权重、星辰定位为 agent 非平台
+```
+
+### 架构决策
+```
+决策记录: shared/decision-log.md
+协议规范: shared/a2a-protocol.md
+消息格式: 统一 {from, to, type, intent, payload, thinking, status, ref}
+```
 
 ```
 每次版本升级更新 Playbook
@@ -141,3 +184,4 @@ Agent → a2a_*() → {agent: JSON}         ← Codex/Claude
 | 版本 | 日期 | 变更 |
 |------|------|------|
 | 1.0 | 2026-07-02 | 初版。合并 PRD + DEV-STANDARDS + UX-DESIGN + 3Git + 硅谷体验 |
+| 1.1 | 2026-07-04 | 多 Agent 架构共识：Agent 闭环 + FIPA 消息路由 + 合同网预埋 + AI Safety |

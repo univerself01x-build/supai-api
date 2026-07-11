@@ -1,0 +1,13 @@
+{
+  "name": "速派 · 数字公民平台",
+  "id": "digital-citizen",
+  "status": "active",
+  "role": "service",
+  "owner_agent": "hermes",
+  "collaborators": ["claude", "codex", "human"],
+  "description": "AI Native 人才匹配派单平台，四档分级（首发定制/资深/专业/速拍），飞书+微信双端",
+  "entry": "engine.handle_message",
+  "data": "data/store.json",
+  "created": "2026-06-30",
+  "updated": "2026-07-05"
+}
