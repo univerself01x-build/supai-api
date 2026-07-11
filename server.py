@@ -280,5 +280,47 @@ async def confirm_project(project_id: str, req: ConfirmRequest):
     )
 
 
+@app.post("/api/seed")
+async def seed_photographers():
+    """一次性灌入模拟摄影师数据"""
+    from engine import load_store, register_citizen, save_store
+
+    MOCK = [
+        ["朱鹏",["活动摄影","商业摄影","产品拍摄","纪录片"],"enterprise",4.9,42,[3000,5000],"上海",["Sony A7M4","DJI RS4"],["中文","英文"]],
+        ["李娜",["产品拍摄","电商拍摄","短视频"],"enterprise",4.8,38,[3000,5000],"上海",["Canon R5"],["中文"]],
+        ["赵峰",["商业摄影","活动摄影","产品拍摄","纪录片"],"enterprise",4.8,35,[2500,5000],"上海",["Sony A7M4"],["中文"]],
+        ["马骏",["发布会拍摄","商务会议摄影","短视频"],"premier",4.7,25,[2000,4000],"上海",["Nikon Z8"],["中文","英文"]],
+        ["Lee",["人像摄影","产品拍摄","数码后期"],"premier",4.6,22,[2000,4000],"北京",["Sony A7M3"],["中文","英文"]],
+        ["刘德华",["活动摄影","展会摄影","视频剪辑"],"premier",4.6,20,[2000,3500],"上海",["Canon R6"],["中文"]],
+        ["周杰",["门店拍摄","产品拍摄","电商摄影"],"premier",4.5,18,[1500,3500],"上海",["Sony A7M3"],["中文"]],
+        ["陈摄影师",["商务会议摄影","活动摄影","短视频"],"premier",4.5,16,[1500,3000],"上海",["Fujifilm XT-5"],["中文"]],
+        ["王思",["产品拍摄","数码后期","人像摄影"],"express",4.4,12,[1200,2500],"上海",["Sony A6400"],["中文"]],
+        ["LuckLee",["活动摄影","产品拍摄","短视频"],"express",4.3,10,[1200,2500],"上海",["Canon R6"],["中文"]],
+        ["赵六",["人像摄影","写真","数码后期"],"express",4.3,8,[1000,2000],"上海",["Nikon Z6"],["中文"]],
+        ["小李",["短视频","活动摄影","视频剪辑"],"express",4.2,7,[1000,2000],"北京",["Sony A7M3"],["中文"]],
+        ["张伟",["产品拍摄","门店拍摄"],"express",4.2,6,[1000,2000],"上海",["Canon R5"],["中文"]],
+        ["林某",["商务会议摄影","活动摄影"],"express",4.1,5,[1000,1800],"深圳",["Sony A7M4"],["中文","粤语"]],
+        ["孙阳",["短视频","活动摄影"],"express",4.0,5,[800,1800],"上海",["DJI Pocket 3"],["中文"]],
+        ["黄摄影师",["产品拍摄","电商摄影"],"pool",4.0,3,[800,1500],"上海",["Sony A6400"],["中文"]],
+        ["周星",["人像摄影","写真"],"pool",3.9,2,[800,1200],"上海",["Canon R6"],["中文"]],
+        ["吴某",["短视频","活动摄影"],"pool",3.8,2,[800,1200],"北京",["iPhone 15 Pro"],["中文"]],
+        ["李强",["人像摄影","商业摄影","产品拍摄","活动摄影"],"pool",4.2,1,[800,1500],"上海",["Sony A7M3"],["中文"]],
+        ["郑某",["门店拍摄","产品拍摄"],"pool",4.0,0,[800,1000],"上海",["Canon R5"],["中文"]],
+    ]
+
+    store = load_store()
+    count = 0
+    for name, skills, tier, rating, completed, price, location, equip, langs in MOCK:
+        pid = f"photographer_{count+1:03d}"
+        if any(c.get("platform_id") == pid for c in store.get("citizens", {}).values()):
+            count += 1; continue
+        r = register_citizen(name, skills, "platform", pid, location=location,
+                            languages=langs, tier=tier, rating=rating,
+                            completed_tasks=completed, price_range=price, equipment=equip)
+        if not isinstance(r, dict) or "error" not in r:
+            count += 1
+    return {"status": "ok", "seeded": count, "total": len(load_store()["citizens"])}
+
+
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8080, log_level="info")

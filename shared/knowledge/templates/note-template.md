@@ -1,20 +1,24 @@
 ---
-title: 笔记模板
-date: 2026-07-06
-tags: [template]
+title: {{title}}
+date: {{date}}
+tags: []
+project: supai
+phase: 1
+status: learning
+parent: "[[home]]"
+source: ""
 ---
 
-# <标题> · <英文> /<IPA 音标>/
+# {{title}}
 
-> <一句话摘要>
+<!-- 一句话核心洞见 -->
 
-## <第一节>
+## 是什么
 
-<内容——关键认知用 > 标注>
+## 怎么来的
 
-## 来源
+## 在速派怎么用的
 
-- <AIMA §X.Y> | <Stripe API 文档链接> | <实战踩坑>
+## 相关
 
----
-*创建: <日期> · 最后审查: <日期> · 下次审查: <日期+90天>*
+- [[link]]

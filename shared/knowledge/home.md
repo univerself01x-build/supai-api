@@ -1,39 +1,33 @@
 ---
-title: AI 知识体系
-date: 2026-07-05
-tags: [index, knowledge-base]
+title: 知识总览
+date: 2026-07-11
+tags: [home, moc]
+project: supai
 status: growing
 ---
 
-# AI 知识体系 · Knowledge /ˈnɑːlɪdʒ/
+# 知识总览
 
-> 累计沉淀，持续迭代。每条知识来自真实实战。
-> 峰哥学习路径 + 速派实战经验 + 硅谷范式对齐。
+> AI Native 产品构建者的从零到一知识体系
 
-## 学习路径
+## 结构
 
-1. [[ai-fundamentals/AI 基础]] — Agent / 模型 / 推理 / 训练
-2. [[agent-engineering/Agent 研发]] — 多 Agent 架构 / 通信协议 / 工具使用
-3. [[silicon-valley/硅谷范式]] — 构建原则 / 设计系统 / 决策框架
-4. [[decisions/架构决策]] — 每个重大决策的为什么
+- [[01-basics/基础层 MOC|01 基础层]] — AI与CS基础
+- [[02-engineering/构建层 MOC|02 构建层]] — 工程与开发
+- [[03-design/设计层 MOC|03 设计层]] — 产品与体验
+- [[04-strategy/策略层 MOC|04 策略层]] — 商业与增长
+- [[05-frontier/前沿层 MOC|05 前沿层]] — 趋势与范式
+- [[06-supai/速派 MOC|06 速派]] — 项目实战
 
-## 实战项目
+## 当前项目
 
-- [[速派-数字公民]] — 四档分级匹配派单平台
-- [[Agent拆解]] — 小红书 AI 产品拆解栏目
-- [[Hermes Music]] — Spotify 音乐策展引擎
+- 速派 Phase 1 — 匹配引擎 + 对话流前端 ✅
+- 速派 Phase 2 — 多角色 + Bot 通知 ⏳
 
-## 工具栈
+## 速派知识卡片
 
-| 工具 | 版本 | 用途 |
-|------|------|------|
-| Claude Code | CLI | 架构 + 审查 |
-| Hermes Agent | — | 调度 + 记忆 + 部署 |
-| CodeX | v0.142.5 | 并行执行（DeepSeek v4 Flash） |
-| CC Switch | — | 协议翻译 + Provider 管理 |
-| Obsidian | — | 知识管理 /ˈɑːbsɪdiən/ |
-| DeepSeek | v4 Pro / Flash | LLM 推理 |
-
----
-
-*每次交互值得留存的知识 → 加一条。半年成手册。*
+```dataview
+TABLE phase, status, tags
+FROM "06-supai"
+SORT date DESC
+```

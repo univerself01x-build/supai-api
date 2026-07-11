@@ -6,3 +6,5 @@ ledger/
 .env
 .DS_Store
 *.tmp
+.vercel
+.env*
