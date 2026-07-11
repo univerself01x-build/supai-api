@@ -21,10 +21,11 @@ from engine.schema import (
     CitizenInput, validate_store,
 )
 
-DATA_DIR = Path("/Users/lifeng/.hermes/projects/digital-citizen/data")
-STATE_DIR = Path("/Users/lifeng/.hermes/projects/digital-citizen/state")
-LEDGER_DIR = Path("/Users/lifeng/.hermes/projects/digital-citizen/ledger")
-CONTEXT_DIR = Path("/Users/lifeng/.hermes/context")
+_ROOT = Path(__file__).parent.parent  # engine/ → project root
+DATA_DIR = _ROOT / "data"
+STATE_DIR = _ROOT / "state"
+LEDGER_DIR = _ROOT / "ledger"
+CONTEXT_DIR = Path.home() / ".hermes/context"
 INBOX_DIR = CONTEXT_DIR / "hermes" / "inbox"           # 发给星辰的消息
 HERMES_OUTBOX_DIR = CONTEXT_DIR / "hermes" / "outbox" # 星辰发出的响应（预埋）
 OUTBOX_DIR = CONTEXT_DIR / "claude" / "outbox"         # Claude 发出的响应
