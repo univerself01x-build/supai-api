@@ -386,5 +386,7 @@ def _seed_on_startup():
 
 
 if __name__ == "__main__":
+    import os
+    port = int(os.environ.get("PORT", 8080))
     _seed_on_startup()
-    uvicorn.run(app, host="0.0.0.0", port=int(8080), log_level="info")
+    uvicorn.run(app, host="0.0.0.0", port=port, log_level="info")
