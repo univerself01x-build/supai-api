@@ -58,7 +58,11 @@ def load_store():
     return json.loads(STORE_PATH.read_text()) if STORE_PATH.exists() else {"citizens": {}, "tasks": {}}
 
 def save_store(d): 
-    STORE_PATH.write_text(json.dumps(d, ensure_ascii=False, indent=2))
+    """原子写入——先写 .tmp 再 rename，防止并发读到半写文件"""
+    import os, tempfile
+    tmp = STORE_PATH.with_suffix('.tmp')
+    tmp.write_text(json.dumps(d, ensure_ascii=False, indent=2))
+    os.replace(str(tmp), str(STORE_PATH))
 
 # ── 技能库、档位配置、Citizen Schema 已迁至 schema.py ──
 # SKILLS, SKILL_SYNONYMS, TIER_CONFIG, TIER_EVENTS, CitizenInput, validate_store
@@ -990,13 +994,16 @@ def _continue_register(platform, uid, msg, coll):
 
 def _continue_post(platform, uid, msg, coll):
     info = extract_all(msg)
-    skills = info.get("skills") or coll.get("skills",[])
+    # 合并已收集的信息和新消息提取的信息
+    skills = info.get("skills") or coll.get("skills", [])
     budget = info.get("budget") or coll.get("budget")
     deadline = info.get("deadline") or coll.get("deadline")
+    # 用完整上下文做 tier 判定，不只是最后一条消息
+    full_context = " ".join(str(x) for x in [coll.get("skills",""), msg, budget or "", deadline or ""] if x)
     missing = missing_fields({"skills":skills,"budget":budget,"deadline":deadline}, "post_task")
     if not missing:
-        tier = detect_tier(msg)
-        matches = match_task(skills, tier)
+        tier = detect_tier(full_context)
+        matches = match_task(skills, tier, location=coll.get("location",""))
         review = review_match(matches, skills)
         r = card_match(matches)
         tier_name = get_tier_name(tier)
